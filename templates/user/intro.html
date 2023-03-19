@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+SignIn
+{% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="row pb-2" style="min-height:50px;background: gray;">
+<div class="col-sm-12 fs-2 text-center text-light"><i>Developer</i><b class="text-ocolor">  profile<i class="fa-duotone fa-user"></i></b>
+</div>
+</div>
+<div class="row pt-3">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 pt-3 ps-5 bg-gcolor"style="box-shadow:4px 4px 4px orange;">
+     <!-- start card  -->
+     <div class="card mb-3" style="max-width: 540px;box-shadow:0 1px 5px rgba(0,0,0,0.80);">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{% static 'images/huzaifa.jpg'%}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body"><br>
+              <h5 class="card-title">DEVELOPER <b class="text-ocolor">INTRO<i class="fa-solid fa-user"></i></b></h5><br><br>
+              <p class="card-text">
+               <b>Hello Everyone !</b><br>  It's my  pleasure to introduce myself .I'm <b class="text-ocolor">Huzaifa Ashfaque</b> from Unnao. I'm pursuing my final year Computer Science & Engineering from <b class="text-ocolor">Government Polytechnic Unnao <i class="fa-solid fa-building-columns"></i>. </b></p>
+              
+            
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- end card  -->
+
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+
+{% endblock %}

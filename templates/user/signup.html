@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}
+SignUp
+{% endblock %}
+{% load static %}
+{% block content %}
+<style>
+    .bgimg{
+    background:url("{% static 'images/hero-2.jpg'%}");
+    background-size: cover;
+}
+</style>
+
+
+<div class="fs-2 text-center">Sign <b class="text-ocolor">Up <i class="fa-solid fa-user-plus"></i></b></div>
+<div class="row enquiry bg-light bgimg" style="min-height:500px;">
+    <div class="col-sm-3" ></div>
+    <div class="col-sm-8 " style="min-height: 400px;padding-top:50px;padding-left:12%;">
+        
+            <!-- start form  -->
+         <form method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            
+          <b class="fs-2" style="color: grey;">Enter your Details :-</b> <br><br>
+          <div class="input-group mb-3">
+              <i class="input-group-text bg-ocolor text-light ">
+                  <i class="fa-solid fa-user"></i></i>
+              <input name="name" type="text" class="form-control" style="margin-right:50%" placeholder="Enter your Name" required/>&nbsp;&nbsp;
+          </div>
+          <div class="input-group mb-3">
+              <i class="input-group-text bg-ocolor text-light ">
+                  <i class="fa-solid fa-envelope"></i></i>
+              <input name="email" type="email" class="form-control" style="margin-right:50%" placeholder="Enter your email" required/>
+          </div>
+          <div class="input-group mb-3">
+            <i class="input-group-text bg-ocolor text-light ">
+                <i class="fa-solid fa-location-dot"></i></i>
+            <input name="address" type="" class="form-control" style="margin-right:50%" placeholder="Enter your Address" required/>
+        </div>
+        <div class="input-group mb-3">
+            <i class="input-group-text bg-ocolor text-light ">
+                <i class="fa-solid fa-image"></i></i>
+                <input type="file" class="form-control " style="margin-right:50%;" name="ppic" required>
+          </div>  
+          <div class="input-group mb-3">
+              <i class="input-group-text bg-ocolor text-light ">
+                  <i class="fa-solid fa-phone"></i></i>
+              <input name="mob" type="text" class="form-control" style="margin-right:50%" placeholder="Enter your Mobile Number" required/>
+          </div>
+          <div class="input-group mb-3">
+            <i class="input-group-text bg-ocolor text-light ">
+                <i class="fa-solid fa-lock"></i></i>
+            <input name="passw" type="password" class="form-control" style="margin-right:50%" placeholder="Enter your Password" required/>
+        </div>
+         <input type="submit" value="Enter" class="form-control text-light bg-ocolor" style="width:50%;">
+      </form>
+         <!-- end form  -->
+      
+    </div>
+ <div class="col-sm-1"></div>
+    
+</div>
+
+    
+
+{% endblock %}

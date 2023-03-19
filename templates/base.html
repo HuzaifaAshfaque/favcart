@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'images/banner-2.jpg'%}" rel="icon"/>
+    <title>
+        {% block title%}
+        {% endblock %}
+    </title>
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet"/>
+    <link href="{% static 'css/all.css'%}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js'%}"></script>
+    <style>
+        .bg-bcolor
+        {
+        background:#2E2E2E;
+        }
+        .bg-gcolor{
+          background: grey;
+        }
+        .text-gcolor{
+          color: grey;
+        }
+        .bg-ocolor
+        {
+        background:#FF8800;
+        }
+        .text-ocolor
+        {
+        color:#FF8800;
+        }
+        #menu ul li a
+        {
+        color:white;
+        }
+        .ufooter
+        {
+        min-height:300px;
+        border-bottom:1px solid white;
+        }
+        .bfooter
+        {
+        height:50px;
+        font-size:22px;
+        text-align:center;
+        line-height:50px;
+        color:white;
+        }
+        .bfooter a
+        {
+        text-decoration:none;
+        }
+        .bfooter a:hover
+        {
+        color:white;
+        }
+        .w
+        {
+        background:url("{% static 'images/banner-2.jpg'%}");
+        background-size:100% 100%;
+        min-height:220px;
+        padding-top:100px;
+        }
+         .m
+        {
+        background:url("{% static 'images/banner-1.jpg'%}");
+        background-size:100% 100%;
+        min-height:220px;
+        padding-top:100px;
+        }
+         .k
+        {
+        background:url("{% static 'images/banner-3.jpg'%}");
+        background-size:100% 100%;
+        min-height:220px;
+        padding-top:100px;
+        }
+        .btn1
+        {
+        background:#FF8800;
+        }
+        .product
+        {
+        min-height:500px;
+        }
+        .bfo{
+      color: grey;
+      font-size: 20px;
+    }
+
+    </style>
+</head>
+<body>
+<div class="container-fluid divfluid">
+    <div class="row bg-bcolor text-light text-center">
+        <div class="col-sm-4">
+            <i class="fa-solid fa-phone fa-bounce"></i>
+          <i>  +91,7239085022 | 0515-567654 </i>
+        </div>
+        <div class="col-sm-4">
+          <b> Welcome to AQ Cart</b>
+            <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <div class="col-sm-4">
+            <i class="fa-brands fa-facebook fa-spin bg-light "  style="color:rgb(31, 24, 221);border-radius:50%;"><a href="https://www.facebook.com/Huzaifa.Ashfaque.7239"></a></i>
+            <i class="fa-brands fa-youtube fa-spin bg-light" style="color:red;border-radius:50%;"></i>
+            <i class="fa-brands fa-twitter fa-spin bg-light" style="color:rgb(68, 174, 215);border-radius:50%;"></i>
+            <i class="fa-brands fa-instagram fa-spin bg-light" style="color:rgb(245, 36, 71);border-radius:50%;"></i>
+        </div>
+    </div>
+    <div class="row header py-3 text-center">
+      
+        <div class="col-sm-4 fs-2 text-center" style="color: grey;">
+           <i> AQ</i><b class="text-ocolor">Cart <i class="fa-solid fa-bag-shopping"></i></b>
+        </div>
+        <div class="col-sm-4 pt-2">
+            <div class="input-group"><input type="text" class="form-control" placeholder="Search...">
+                <i class="input-group-text bg-gcolor text-light">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </i>
+            </div>
+        </div>
+        <div class="col-sm-4 pt-2">
+            <a href="/user/showcart/" class="btn bg-grey text-gcolor">
+              My Cart <i class="fa-solid fa-cart-plus text-ocolor"></i>
+              <b class="badge bg-ocolor">
+                {{cart}}
+              </b>
+          </a>
+            
+            {% if request.session.userid %}
+            <b class="text-gcolor">{{ request.session.userid}}</b>
+            <img src="/{{request.session.userpic}}" style="height:50px; width:50px;" class="img-thumbnail"/>
+            {% else %}
+            <b>Guest user</b>
+            <img src="{% static 'images/user.jpg'%}" style="max-height:50px;" class="img-thumbnail"/>
+            {% endif %}
+          
+        </div>
+    </div>
+    <div class="row menu bg-bcolor" style="min-height:45px">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <!-- start menu -->
+            <nav class="navbar navbar-expand-lg "id="menu">
+                <div class="container-fluid">
+              
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/user/home/">
+                            <i class="fa-solid fa-house"></i><b> Home</b></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/user/about/">
+                            <i class="fa-solid fa-circle-info"></i><b> Aboutus</b></a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/user/product/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-cubes"></i><b> Product</b>
+                        </a>
+                        <ul class="dropdown-menu text-white bg-dark">
+                          <li><a class="dropdown-item" href="/user/mens/"><i class="fa-solid fa-person"></i><b> Men's</b></a></li>
+                          <li><a class="dropdown-item" href="/user/womens/"><i class="fa-solid fa-person-dress"></i><b> Women's</b></a></li>
+                          <li><a class="dropdown-item" href="/user/kids/"><i class="fa-solid fa-children"></i> <b>kid's</b></a></li>
+              
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/user/myorder/"><i class="fa-solid fa-cart-shopping"></i><b> My Orders</b></a>
+                      </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/user/enquiry/"><i class="fa-solid fa-phone "></i><b> Enquiry</b></a>
+                      </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/user/signup/"><i class="fa-solid fa-user-plus"></i><b> Sign UP</b></a>
+                      </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/user/myprofile/"><i class="fa-solid fa-user"></i><b> MY Profile</b></a>
+                      </li>
+                            {% if request.session.userid %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user/signout/"><i class="fa-solid fa-right-to-bracket"></i> <b>Sign out</b></a>
+                            </li>
+                            {% else %}
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="/user/signin/"><i class="fa-solid fa-sign-in"></i> <b>Sign In</b></a>
+                            </li>
+                            {% endif %}
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+            <!-- end menu -->
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+
+    <div class="row product">
+        <div class="col-sm-12 py-3">
+    {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+      <div class="row bigsale" style="min-height:400px;">
+        <div class="col-sm-6 p-5">
+          <img src="{% static 'images/Feed.jpg' %}" height="250px" class="w-100">
+        </div>
+        <div class="col-sm-6 p-5 text-center">
+        <b class="text-ocolor fs-1">50% less in all items</b>
+        <p>New arrivals new collection <br> flat 50% off in every item you buy from FAVCART <br> Offer valid for 5 days only. <br>HURRY UP!  </p>
+        <a href="/user/cpdetail/" class="btn btn1 btn-lg bg-ocolor mt-4">Shop Now <i class="fa-solid fa-bag-shopping"></i></a>
+        </div>
+      </div>
+
+    <div class="row message"></div>
+    <!-- ################################################ -->
+    
+    <div class="row ufooter bg-bcolor border-1  ">
+        
+      <div class="col-sm-4 ">
+          <img src="{% static 'images/gem.png'%}" class="pt-2">
+          <img src="{% static 'images/start.png'%}" class="pt-2">
+          <img src="{% static 'images/google.png'%}" class="pt-2">
+  
+      </div>
+        
+
+        <div class="col-sm-4 bfo ps-5 ">
+          <b class="fs-3 text-light "><u>Contact</u> Address</b>
+          <p> <i class="fa-solid fa-home text-ocolor"></i> 10/141 Madni Nagar <br> Shuklaganj,Unnao <br>Uttar Pradesh -209861</p><br>
+          <p><i class="fa-solid fa-phone text-ocolor"></i>+91-7239085022<br>
+          <i class="fa-solid fa-phone text-ocolor"></i>+91-7007194850<br>
+        <i class="fa-regular fa-envelope text-ocolor"></i>siddiqui8573@gmail.com</p>
+  </div>
+
+
+        <div class="col-sm-4 bfo">
+          <p class="fs-1" style="color: grey;"><i>AQ</i><b class="text-ocolor"> Cart
+            <i class="fa-solid fa-bag-shopping"></i></b></p>
+        <p class="pe-3" style="text-align: justify;" ><b class="text-light">AQ Cart </b>is an e-commerce Website where you can buy clothes and check the new stock.</p><br>
+        <b class="text-light fs-3">Stay Connected</b>
+        <hr class="text-light " style="width:140px;">
+        <i class="fa-brands fa-facebook text-light"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fa-brands fa-twitter text-light"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fa-brands fa-instagram text-light"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fa-brands fa-whatsapp text-light"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+        <i class="fa-brands fa-youtube text-light"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+  
+        </div>
+      </div>
+    <!-- ################################################ -->
+    <div class="row bfooter bg-bcolor">
+        <div class="col-sm-6">
+            Developed By : <a href="/user/intro/" class="text-ocolor">Huzaifa Ashfaque</a>
+        </div>
+        <div class="col-sm-6">
+            &copy; Copyright to : <a href="https://www.AQcart.in" target="_blank" class="text-ocolor">AQ Cart Pvt. Ltd.</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

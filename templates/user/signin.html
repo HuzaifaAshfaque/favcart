@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+SignIn
+{% endblock %}
+{% load static %}
+{% block content %}
+<style>
+    .bgimg{
+    background:url("{% static 'images/login1.webp'%}");
+    background-size: 100% 100%;
+}
+</style>
+
+<div class="row pb-2" style="min-height:50px;background: gray;">
+<div class="col-sm-12 fs-2 text-center text-light"><i>Sign</i><b class="text-ocolor">in <i class="fa-solid fa-sign-in"></i></b>
+</div>
+</div>
+<div class="row bgimg" style="min-height:500px;">
+    <div class="col-sm-12">
+<div class="row enquiry " style="padding-top:8%;"  >
+    <div class="col-sm-4" ></div>
+    <div class="col-sm-4 bg-gcolor" style="box-shadow:0 1px 5px rgba(0,0,0,0.80);">
+        
+            <!-- start form  -->
+         <form method="post">
+            {% csrf_token %}
+            
+          <b class="fs-2 text-light">Enter Login Details :-</b> <br><br>
+          
+          <div class="input-group mb-3">
+              <i class="input-group-text bg-ocolor text-light ">
+                  <i class="fa-solid fa-envelope"></i></i>
+              <input name="email" type="email" class="form-control"  placeholder="Enter your email" required/>
+          </div>
+          
+          <div class="input-group mb-3">
+            <i class="input-group-text bg-ocolor text-light ">
+                <i class="fa-solid fa-lock"></i></i>
+            <input name="passw" type="password" class="form-control" placeholder="Enter your Password" required/>
+        </div>
+         <input type="submit" value="Enter" class="form-control text-light mb-4 bg-ocolor">
+      </form>
+         <!-- end form  -->
+      
+    </div>
+ <div class="col-sm-4"></div>
+    
+</div>
+</div>
+</div>
+
+    
+
+{% endblock %}

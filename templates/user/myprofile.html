@@ -1,0 +1,119 @@
+{% extends 'base.html'%}
+{% block content %}
+{% load static %}
+<script src="{% static 'js/jquery-3.6.1.min.js'%}"></script>
+<script>
+   $(document).ready(function(){
+   $("#btne").click(function(){
+   $(".uform").slideToggle(4000)
+   })
+   })
+</script>
+
+{% if not request.session.userid %}
+
+<script>
+alert('You have to login first....')
+location.href="/user/signin/"
+
+</script>
+{% endif %}
+<style>
+  .bgimg{
+  background:url("{% static 'images/login1.webp'%}");
+  background-size:100% 100%;
+}
+.uform{
+  display:block;
+}
+</style>
+<div class="fs-2 text-center">My <b class="text-ocolor">Profile
+    <i class="fa-solid fa-user"></i>
+</b></div>
+<div class="row bgimg">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="row">
+            
+            <!-- start card  -->
+            {% for x in mdata %}
+            <div class="card mb-3 w-100" >
+                <div class="row g-0">
+                  <div class="col-md-4 p-3">
+                    <img src="/{{x.ppic}}" style="min-height:300px;"class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Name is:-<b>{{x.name}}</b></h5>
+                      <p class="card-text">
+                        <h5>Mobile no :-<b>{{x.mob}}</b></h5><br>
+                        <h5>Email :-<b>{{x.email}}</b></h5><br>
+                        <h5>Password is:-<b>{{x.passw}}</b></h5><br>
+                        <h5>Address is:-<b>{{x.address}}</b></h5><br>
+                        <a href="#" id="btne" class="btn bg-ocolor float-end">Edit Details </a>
+
+                    </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            <!-- end card  -->
+            
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+
+ <!-- form   -->  
+ 
+<div class="row ">
+  <div class="col-sm-2" ></div>
+  <div class="col-sm-8 uform ">
+      
+          <!-- start form  -->
+       <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          
+        <b class="fs-2" style="color: grey;">Enter your Details :-</b> <br><br>
+        <div class="input-group mb-3">
+            <i class="input-group-text bg-ocolor text-light ">
+                <i class="fa-solid fa-user"></i></i>
+            <input name="name" type="text" class="form-control" style="margin-right:50%" placeholder="Enter your Name" required/>&nbsp;&nbsp;
+        </div>
+        
+        <div class="input-group mb-3">
+          <i class="input-group-text bg-ocolor text-light ">
+              <i class="fa-solid fa-location-dot"></i></i>
+          <input name="address" type="" class="form-control" style="margin-right:50%" placeholder="Enter your Address" required/>
+      </div>
+      <div class="input-group mb-3">
+          <i class="input-group-text bg-ocolor text-light ">
+              <i class="fa-solid fa-image"></i></i>
+              <input type="file" class="form-control " style="margin-right:50%;" name="pic" required>
+        </div>  
+        <div class="input-group mb-3">
+            <i class="input-group-text bg-ocolor text-light ">
+                <i class="fa-solid fa-phone"></i></i>
+            <input name="mob" type="text" class="form-control" style="margin-right:50%" placeholder="Enter your Mobile Number" required/>
+        </div>
+        <div class="input-group mb-3">
+          <i class="input-group-text bg-ocolor text-light ">
+              <i class="fa-solid fa-lock"></i></i>
+          <input name="passw" type="password" class="form-control" style="margin-right:50%" placeholder="Enter your Password" required/>
+      </div>
+       <input type="submit" value="Enter" class="form-control text-light bg-ocolor mb-3" style="width:50%;">
+    </form>
+       <!-- end form  -->
+    
+  </div>
+<div class="col-sm-2"></div>
+  
+</div>
+</div>
+
+  
+
+
+  <!-- endform  -->
+</div>
+{% endblock %}

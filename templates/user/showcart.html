@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Product
+{% endblock%}
+{% block content%}
+{% if not request.session.userid %}
+<script>
+alert('You have to login first....')
+location.href="/user/signin/"
+</script>
+{% endif %}
+
+<div class="col-sm-12 fs-2 text-center text-gcolor">Your item in</i> <b class="text-ocolor">cart <i class="fa-solid fa-cart-plus"></i></b></div>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>Product picture</th>
+        <th>Price</th>
+        <th>After Discount</th>
+        <th>Size</th>
+        <th>Color</th>
+        <th>Product Delivery</th>
+        <th>Order Date</th>
+        <th>Delete</th>
+        <th>order now</th>
+
+      </tr>
+      {% for i in cdata %}
+  <tr>
+    <td><img src="/{{i.7}}" style="max-height:150px;" class="img-thumbnail"/></td>
+    <td class="text-danger fw-bold">{{i.1}}</td>
+    <td class="text-success fw-bold">{{i.2}}</td>
+    <td><span class="btn bg-ocolor">{{i.3}}</span></td>
+    <td><div style="height: 45px;width: 45px;border-radius:3px;background:{{i.4}};"></div></td>
+    <td class="text-gcolor fs-4">{{i.6}}</td>
+    <td>{{i.14}}</td>
+    
+    <td><a href="/user/showcart?msg={{i.11}}" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></a></td>
+    <td><a href="/user/showcart?cid={{i.11}}&pid={{i.13}}" class="btn-btn-danger bg-ocolor">Order Now</a></td>
+  </tr>
+    {% endfor %}
+  
+
+  
+
+</table>
+
+{% endblock %}   

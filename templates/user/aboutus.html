@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block title %}
+ Aboutus
+{% endblock %}
+{% block content %}
+<style>
+    .text-ocolor
+    {
+    color:#FF8800;}
+    .st
+    {
+      min-height: 200px;
+      border: 2px solid black;
+      
+
+    }
+    .sd
+    {
+      min-height: 200px;
+    }
+    .sst{
+      min-height:200px;
+      text-align: center;
+      font-size: 50px;
+      padding-top: 50px;
+    }
+    .ssd{
+      text-align: center;
+      font-size: 30px;
+      padding-top: 40px;
+      border: 2px solid grey;    
+      
+      }
+</style>
+<!-- <div class="row sevices bg-light" style="min-height: 200px;">
+    <div class="col-sm-12">
+      <div class="row services top "style="min-height: 60px;">
+        <div class="col-sm-12 bg-light fs-2 text-center">
+          OUR <b class="text-ocolor">Services <i class="fa-solid fa-wand-magic-sparkles"></i></b>
+        </div>
+      </div>
+      <div class="row services bottom bg-light" style="min-height:140px;padding-left:150px; padding-right:150px; padding-bottom:50px;">
+        <div class="col-sm-4 ">
+          <div class="row sbl" style="min-height:100px;border:2px solid grey ;">
+            <div class="col-sm-4 pt-4 ps-5">
+            <i class="fa-solid fa-truck text-ocolor" style="font-size: 50px;"></i>
+            </div>
+            <div class="col-sm-8 pt-4">
+              <b>FREE SHIPPING</b>
+              <P>for all order upto Rs.2000</P>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 ">
+            <div class="row sbl" style="min-height:100px;border:2px solid grey ;">
+              <div class="col-sm-4 pt-4 ps-5">
+              <i class="fa-solid fa-clock text-ocolor" style="font-size: 50px;"></i>
+              </div>
+              <div class="col-sm-8 pt-4">
+                <b>DELIVERY ON TIME</b>
+                <P class="fs-6">Fastest Delivery doorstep</P>
+              </div>
+            </div>
+          </div>
+        
+        <div class="col-sm-4">
+          <div class="row sbr" style="min-height:100px;border:2px solid grey ;">
+            <div class="col-sm-4 pt-4 ps-5 ">
+              <i class="fa-solid fa-lock text-ocolor" style="font-size: 50px;"></i>
+
+            </div>
+            <div class="col-sm-8 pt-4">
+              <b>SECURE PAYMENT</b>
+              <P>100% secure payment</P>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div> -->
+
+  <div class="row bg-light st">
+    <div class="col-sm-12 sst">
+      OUR <b class="text-ocolor">Services <i class="fa-solid fa-wand-magic-sparkles"></i></b>
+    </div>
+  </div>
+  <div class="row bg-light sd">
+    <div class="col-sm-4 ssd">
+      <i class="fa-solid fa-truck text-ocolor"></i>
+      <b>FREE SHIPPING</b>
+      <P>for all order upto Rs.2000</P>
+
+    </div>
+    <div class="col-sm-4 ssd">
+      <i class="fa-solid fa-clock text-ocolor"></i>
+      <b>DELIVERY ON TIME</b>
+      <P>Fastest Delivery doorstep</P>
+
+    </div>
+    <div class="col-sm-4 ssd">
+      <i class="fa-solid fa-lock text-ocolor"></i>
+      <b>SECURE PAYMENT</b>
+      <P>100% secure payment</P>
+
+    </div>
+  </div>
+{% endblock %}
