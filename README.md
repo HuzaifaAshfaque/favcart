@@ -23,5 +23,5 @@ Backend: Django (Python)
 
 Frontend: HTML5, CSS3, Vanilla JavaScript
 
-Database: (Optional) SQLite3 (default Django database)
+Database: SQLite3 (default Django database)
 
