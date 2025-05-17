@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-9$_@d%w8l!row23vbcqb)cj)=(##-qp70f3-b%+!iss62+)e#j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'favcart.onrender.com',
+    'www.favcart.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
